@@ -1,0 +1,26 @@
+[package]
+name = "strategy-engine"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = []
+python = ["pyo3"]
+
+[dependencies]
+data-ingestion = { path = "../data-ingestion" }
+thiserror = "1"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+rtrb = "0.3"
+crossbeam-channel = "0.5"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# 수치 연산 — ndarray는 Strategy Engine의 핵심
+ndarray = "0.15"
+# 통계/확률 분포
+statrs = "0.17"
+
+# PyO3 — Rust ↔ Python 인터페이스 (§3.3, feature-gated)
+pyo3 = { version = "0.21", features = ["extension-module"], optional = true }

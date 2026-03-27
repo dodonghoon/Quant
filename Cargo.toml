@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/data-ingestion",
+    "crates/strategy-engine",
+    "crates/execution-engine",
+    "crates/web-dashboard",
+]

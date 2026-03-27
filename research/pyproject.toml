@@ -1,0 +1,43 @@
+[project]
+name = "quant-research"
+version = "0.1.0"
+description = "퀀트 트레이딩 시스템 — Python 연구 계층"
+requires-python = ">=3.10"
+dependencies = [
+    # 데이터 분석
+    "pandas>=2.0",
+    "numpy>=1.24",
+    # 데이터 저장
+    "zarr>=2.16",
+    "pyarrow>=14.0",
+    "fastparquet>=2023.10",
+    # 백테스팅
+    "vectorbt>=0.26",
+    # 통계 모델링
+    "statsmodels>=0.14",
+    "arch>=6.2",
+    # 딥러닝 & ONNX
+    "torch>=2.1",
+    "onnx>=1.15",
+    "onnxruntime>=1.16",
+    # 시각화
+    "matplotlib>=3.8",
+    # HTTP 클라이언트
+    "requests>=2.31",
+    # 유틸리티
+    "tqdm>=4.66",
+    "loguru>=0.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["research*"]

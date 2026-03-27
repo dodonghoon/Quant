@@ -1,0 +1,45 @@
+[package]
+name = "web-dashboard"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "quant-dashboard"
+path = "src/main.rs"
+
+[dependencies]
+# 내부 크레이트
+data-ingestion = { path = "../data-ingestion" }
+strategy-engine = { path = "../strategy-engine" }
+execution-engine = { path = "../execution-engine" }
+
+# 웹 서버
+axum = { version = "0.7", features = ["ws", "json", "macros"] }
+axum-extra = { version = "0.9", features = ["typed-header"] }
+tower = { version = "0.4", features = ["limit", "timeout"] }
+tower-http = { version = "0.5", features = ["cors", "trace", "compression-gzip"] }
+tokio = { version = "1", features = ["full"] }
+
+# 직렬화
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# 인증
+jsonwebtoken = "9"
+argon2 = "0.5"
+
+# 감사 로그
+sqlx = { version = "0.7", features = ["sqlite", "runtime-tokio"] }
+
+# 유틸리티
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+thiserror = "1"
+futures-util = "0.3"
+futures = "0.3"
+tokio-stream = "0.1"
+
+[dev-dependencies]
+tempfile = "3"
